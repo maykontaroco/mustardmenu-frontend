@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mustard Menu</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      width: 300px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      background-color: #f2f2f2;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 5px;
+    }
+
+    .form-group .btn {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body class="bg-image">
+<div class="panel-login">
+  <h2 class="title">Mustard</h2>
+  <h2 class="title">Menu</h2>
+  <form>
+
+    <form [formGroup]="loginForm" (submit)="login()">
+      <div class="input-with-icon" style="padding-top: 20px">
+        <input type="text" id="username" placeholder="Username" formControlName="username">
+      </div>
+      <div class="input-with-icon" style="padding-top: 20px">
+        <input type="password" id="password" placeholder="Password" formControlName="password">
+      </div>
+    </form>
+
+    <div style="color: white; padding-top: 10px">
+      <label>Esqueceu a senha?</label>
+    </div>
+
+    <div style="padding-top: 40px">
+      <button class="button" type="button" (click)="login()">Entrar</button>
+    </div>
+    <div class="blank-line"></div>
+    <label class="right-label">{{version}}</label>
+
+  </form>
+</div>
+</body>
+</html>
