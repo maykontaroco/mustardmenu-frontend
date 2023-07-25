@@ -1,3 +1,5 @@
+@import "../../styles.css";
+
 .panel-login {
   position: absolute;
   top: 50%;
@@ -5,7 +7,7 @@
   transform: translate(-50%, -50%);
   text-align: center;
 
-  background-color: #FBC02D;
+  background-color: var(--accent-color);
   width: 450px;
   height: 650px;
   border-radius: 10px;
@@ -14,8 +16,8 @@
 .button {
   width: 150px;
   height: 40px;
-  color: #FBC02D;
-  background-color: white;
+  color: var(--accent-color);;
+  background-color: var(--text-color);
   font-weight: bold;
   border-radius: 10px;
   border-color: transparent;
@@ -23,7 +25,7 @@
 }
 
 .title {
-  color: white;
+  color: var(--text-color);
   font-family: "Handlee";
   font-size: 40px;
 }
@@ -43,7 +45,7 @@
 }
 
 .right-label {
-  color: white;
+  color: var(--text-color);
   text-align: right;
   position: absolute;
   right: 10px;
