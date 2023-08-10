@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Mustard Menu</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -45,16 +46,18 @@
 </head>
 <body class="bg-image">
 <div class="panel-login">
-  <h2 class="title">Mustard</h2>
-  <h2 class="title">Menu</h2>
+  <div style="padding-top: 50px">
+    <h2 class="title">Mustard</h2>
+    <h2 class="title">Menu</h2>
+  </div>
   <form>
 
-    <form [formGroup]="loginForm" (submit)="login()">
+    <form style="padding-top: 50px" [formGroup]="loginForm" (submit)="login()">
       <div class="input-with-icon" style="padding-top: 20px">
-        <input type="text" id="username" placeholder="Username" formControlName="username">
+        <input class="input" type="text" id="username" placeholder="Username" formControlName="username">
       </div>
       <div class="input-with-icon" style="padding-top: 20px">
-        <input type="password" id="password" placeholder="Password" formControlName="password">
+        <input class="input" type="password" id="password" placeholder="Password" formControlName="password">
       </div>
     </form>
 
