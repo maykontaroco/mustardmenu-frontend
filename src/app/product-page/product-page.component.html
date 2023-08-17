@@ -1,0 +1,28 @@
+<h1> Produtos </h1>
+
+<div style="display: flex; flex-direction: column;">
+
+  <div class="panel panel-head">
+    <input type="text" class="input" style="flex: 8" placeholder="Pesquisar">
+    <button class="button" style="flex: 1">Categoria</button>
+    <button class="button-accent" style="flex: 1">Cadastrar</button>
+  </div>
+
+  <div class="panel panel-body">
+    <mat-list>
+      <mat-list-item class="mat-list-item" *ngFor="let product of products">
+        <div class="grid">
+          <label class="label-description">{{ product.description }}</label>
+          <label class="label-price">{{ 'R$ ' + product.price.toFixed(2) }}</label>
+          <button class="transparent-button" style="margin-right: 10px">
+            <span class="icon"><i class="fas fa-edit"></i></span>
+          </button>
+          <button class="transparent-button" style="margin-right: 10px">
+            <span class="icon"><i class="fas fa-trash"></i></span>
+          </button>
+        </div>
+      </mat-list-item>
+    </mat-list>
+  </div>
+
+</div>

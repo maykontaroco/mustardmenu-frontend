@@ -16,6 +16,7 @@ import {MatListModule} from '@angular/material/list';
 import {ToastrModule} from "ngx-toastr";
 import {SalePageComponent} from './sale-page/sale-page.component';
 import {CdkListbox} from "@angular/cdk/listbox";
+import { ProductPageComponent } from './product-page/product-page.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import {CdkListbox} from "@angular/cdk/listbox";
     DashboardPageComponent,
     SidenavComponent,
     SalePageComponent,
+    ProductPageComponent,
   ],
   imports: [
     BrowserModule,

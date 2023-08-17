@@ -31,19 +31,35 @@
 }
 
 .input {
+  height: 40px;
   padding: 10px;
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  margin: 10px
 }
 
 .button-accent {
-  background-color: #FBC02D;
-  color: white;
+  background-color: var(--accent-color);
+  color: var(--text-color);
+  margin: 5px;
   padding: 10px;
   height: 50px;
   font-size: 16px;
-  border: 0px;
+  border: none;
+  border-radius: 6px;
+  border-right: 2px solid lightgray;
+  border-bottom: 2px solid lightgray;
+}
+
+.button {
+  background-color: var(--background-color);
+  color: var(--text-dark-color);
+  margin: 5px;
+  padding: 10px;
+  height: 50px;
+  font-size: 16px;
+  border: none;
   border-radius: 6px;
   border-right: 2px solid lightgray;
   border-bottom: 2px solid lightgray;
@@ -55,6 +71,32 @@
 
 .button-accent:hover {
   opacity: 70%;
+}
+
+.transparent-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.transparent-button:hover {
+  min-width: 30px;
+  min-height: 30px;
+  background-color: rgba(0, 0, 0, 0.1);
+  align-items: center;
+  border-radius: 6px;
+}
+
+.panel {
+  background-color: #FFFFFF;
+  border-radius: 6px;
+  margin: 10px;
+}
+
+.icon {
+  font-size: 18px;
+  margin: 10px;
 }
 
 html, body {

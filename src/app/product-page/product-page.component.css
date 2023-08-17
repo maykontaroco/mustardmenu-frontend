@@ -1,0 +1,54 @@
+.button-size {
+  width: 220px !important;
+  margin: 5px !important;
+}
+
+.grid {
+  color: var(--text-dark-color);
+  height: calc(60%);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.panel-head {
+  height: 60px;
+  width: calc(95%);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px;
+}
+
+.panel-body {
+  width: calc(95%);
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  padding: 10px;
+}
+
+.mdc-list-item {
+  display: flex;
+  background-color: #FFFFFF;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+  border: 1px solid #ccc;
+
+  flex: 1;
+  height: 70px !important;
+  margin-bottom: 10px;
+  padding: 10px !important;
+  border-radius: 5px !important;
+}
+
+.label-description {
+  flex: 12;
+  font-size: 18px;
+  padding: 10px;
+}
+
+.label-price {
+  flex: 1;
+  font-size: 18px;
+  text-align: left;
+}

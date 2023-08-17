@@ -19,7 +19,6 @@ export class SalePageComponent {
   getProducts() {
     this.productService.getProducts().subscribe((products) => {
       this.products = products;
-      console.log(products);
     });
   }
   addItem(product: Product){
