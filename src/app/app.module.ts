@@ -12,7 +12,10 @@ import {DashboardPageComponent} from './dashboard-page/dashboard-page.component'
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {BodyComponent} from "./body/body.component";
 import {SidenavComponent} from "./sidenav/sidenav.component";
+import {MatListModule} from '@angular/material/list';
 import {ToastrModule} from "ngx-toastr";
+import {SalePageComponent} from './sale-page/sale-page.component';
+import {CdkListbox} from "@angular/cdk/listbox";
 
 
 @NgModule({
@@ -23,6 +26,7 @@ import {ToastrModule} from "ngx-toastr";
     HomePageComponent,
     DashboardPageComponent,
     SidenavComponent,
+    SalePageComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +34,9 @@ import {ToastrModule} from "ngx-toastr";
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    MatListModule,
     ToastrModule.forRoot(),
+    CdkListbox,
   ],
   exports: [RouterModule],
   providers: [],

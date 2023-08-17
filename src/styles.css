@@ -5,39 +5,29 @@
   --dark-color: #424242;
   --dark-variant-color: #534E4E;
   --text-color: #FFFFFF;
+  --text-dark-color: #141414;
 }
+
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
 
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box!important;
-}
-
-body {
-  position: relative;
-  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box !important;
 }
 
 .card {
   display: flex;
   flex-direction: column;
-  border-radius: .5rem;
-  background-color: #fff;
-  margin: 1.25rem 0 1.25rem 0;
-  box-shadow: 0 .25rem .5rem #e6edef;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+  border: 1px solid #ccc;
 }
 
-.card .card-head {
-  padding: 1rem 1.5rem;
-  border-bottom: 1px solid #edf1f7;
-  font-size: 1rem;
-  font-weight: 600;
-}
-
-.card .card-body {
-  padding: 1rem 1.5rem;
+.card:hover {
+  opacity: 70%;
 }
 
 .input {
@@ -47,3 +37,31 @@ body {
   border-radius: 4px;
 }
 
+.button-accent {
+  background-color: #FBC02D;
+  color: white;
+  padding: 10px;
+  height: 50px;
+  font-size: 16px;
+  border: 0px;
+  border-radius: 6px;
+  border-right: 2px solid lightgray;
+  border-bottom: 2px solid lightgray;
+}
+
+.button:hover {
+  opacity: 70%;
+}
+
+.button-accent:hover {
+  opacity: 70%;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

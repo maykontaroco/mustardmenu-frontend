@@ -13,10 +13,10 @@
   border-radius: 10px;
 }
 
-.button {
+.button-accent {
   width: 150px;
   height: 40px;
-  color: var(--accent-color);;
+  color: var(--accent-color);
   background-color: var(--text-color);
   font-weight: bold;
   border-radius: 10px;

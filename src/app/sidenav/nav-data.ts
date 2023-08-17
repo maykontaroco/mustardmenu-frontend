@@ -5,7 +5,7 @@ export const navbarData = [
     label: 'Dashboard'
   },
   {
-    routeLink: 'coupens',
+    routeLink: 'sale',
     icon: 'fal fa-tags',
     label: 'Vendas'
   },
