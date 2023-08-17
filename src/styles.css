@@ -81,8 +81,8 @@
 }
 
 .transparent-button:hover {
-  min-width: 30px;
-  min-height: 30px;
+  min-width: 25px;
+  min-height: 25px;
   background-color: rgba(0, 0, 0, 0.1);
   align-items: center;
   border-radius: 6px;
