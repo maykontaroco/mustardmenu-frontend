@@ -11,16 +11,34 @@
   <div class="panel panel-body" [formGroup]="productForm">
     <div class="grid-container">
       <div class="grid-row">
-        <input class="input" style="flex:1" type="text" id="code" placeholder="Código" formControlName="code">
-        <input class="input" style="flex:3" type="text" id="description" placeholder="Nome do produto" formControlName="description">
+        <input class="input"
+               [ngClass]="{'input-invalid': productForm.get('code')?.invalid && (productForm.get('code')?.touched || formSubmitted)}"
+               mask="0*" [maxlength]=14
+               style="flex:1" type="text" id="code" placeholder="Código" formControlName="code">
+        <input class="input"
+               [ngClass]="{'input-invalid': productForm.get('description')?.invalid && (productForm.get('description')?.touched || formSubmitted)}"
+               [maxlength]=50
+               style="flex:3" type="text" id="description" placeholder="Nome do produto" formControlName="description">
       </div>
       <div class="grid-row">
-        <input class="input" style="flex:1" type="text" id="price" placeholder="Preço de venda" formControlName="price">
-        <input class="input" style="flex:1" type="text" id="costPrice" placeholder="Preço de custo" formControlName="costPrice">
-        <input class="input" style="flex:1" type="text" id="idCategory" placeholder="Categoria" formControlName="idCategory">
+        <input class="input"
+               [ngClass]="{'input-invalid': productForm.get('price')?.invalid && (productForm.get('price')?.touched || formSubmitted)}"
+               mask="separator.2" thousandSeparator="." decimalMarker=","
+               style="flex:1" type="text" id="price" placeholder="Preço de venda" formControlName="price">
+        <input class="input"
+               [ngClass]="{'input-invalid': productForm.get('costPrice')?.invalid && (productForm.get('costPrice')?.touched || formSubmitted)}"
+               mask="separator.2" thousandSeparator="." decimalMarker=","
+               style="flex:1" type="text" id="costPrice" placeholder="Preço de custo" formControlName="costPrice">
+        <input class="input"
+               [ngClass]="{'input-invalid': productForm.get('idCategory')?.invalid && (productForm.get('idCategory')?.touched || formSubmitted)}"
+               style="flex:1" type="text" id="idCategory" placeholder="Categoria" formControlName="idCategory">
       </div>
       <div class="grid-row">
-        <textarea class="input" style="flex: 1; height: 150px" rows="4" cols="100" id="observation" placeholder="Observação" formControlName="observation"></textarea>
+        <textarea class="input"
+                  [ngClass]="{'input-invalid': productForm.get('observation')?.invalid && (productForm.get('observation')?.touched || formSubmitted)}"
+                  style="flex: 1; height: 150px" rows="4" cols="100" id="observation" placeholder="Observação"
+                  [maxlength]=200
+                  formControlName="observation"></textarea>
       </div>
     </div>
   </div>

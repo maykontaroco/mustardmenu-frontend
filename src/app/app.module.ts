@@ -18,7 +18,7 @@ import {SalePageComponent} from './sale-page/sale-page.component';
 import {CdkListbox} from "@angular/cdk/listbox";
 import { ProductPageComponent } from './product-page/product-page.component';
 import { RegisterProductPageComponent } from './register-product-page/register-product-page.component';
-
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -41,6 +41,7 @@ import { RegisterProductPageComponent } from './register-product-page/register-p
     MatListModule,
     ToastrModule.forRoot(),
     CdkListbox,
+    NgxMaskModule.forRoot(),
   ],
   exports: [RouterModule],
   providers: [],

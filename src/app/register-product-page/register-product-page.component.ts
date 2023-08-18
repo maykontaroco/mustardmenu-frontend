@@ -11,6 +11,7 @@ import {Product} from "../model/product";
 })
 export class RegisterProductPageComponent {
   productForm: FormGroup;
+  formSubmitted = false;
 
   constructor(private productService: ProductService, private router: Router, private fb: FormBuilder,) {
     this.productForm = this.fb.group({
@@ -19,7 +20,7 @@ export class RegisterProductPageComponent {
       price: ['', Validators.required],
       costPrice: ['', Validators.required],
       idCategory: ['', Validators.required],
-      observation: ['', Validators.required],
+      observation: [''],
     });
   }
 
@@ -28,23 +29,20 @@ export class RegisterProductPageComponent {
   }
 
   save() {
-    console.log('save');
+    this.formSubmitted = true;
     if (this.productForm.valid) {
-      console.log('valid');
-
       const product = new Product(
         null,
         true,
         this.productForm.value.description,
         this.productForm.value.code,
-        '',
-        this.productForm.value.price,
-        this.productForm.value.costPrice,
+        this.productForm.value.description,
+        parseFloat(this.productForm.value.price),
+        parseFloat(this.productForm.value.costPrice),
         this.productForm.value.idCategory,
         this.productForm.value.observation
       );
 
-      console.log(product);
       this.productService.insertProduct(product).subscribe(
         (response) => {
           console.log('Produto inserido com sucesso:', response);
@@ -53,7 +51,6 @@ export class RegisterProductPageComponent {
           console.error('Erro ao inserir produto:', error);
         }
       );
-      ;
     }
   }
 }
