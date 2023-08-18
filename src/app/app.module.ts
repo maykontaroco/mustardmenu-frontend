@@ -17,6 +17,7 @@ import {ToastrModule} from "ngx-toastr";
 import {SalePageComponent} from './sale-page/sale-page.component';
 import {CdkListbox} from "@angular/cdk/listbox";
 import { ProductPageComponent } from './product-page/product-page.component';
+import { RegisterProductPageComponent } from './register-product-page/register-product-page.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { ProductPageComponent } from './product-page/product-page.component';
     SidenavComponent,
     SalePageComponent,
     ProductPageComponent,
+    RegisterProductPageComponent,
   ],
   imports: [
     BrowserModule,

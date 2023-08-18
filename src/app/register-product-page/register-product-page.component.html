@@ -1,0 +1,28 @@
+<h1> Cadastrar produto </h1>
+
+<div style="display: flex; flex-direction: column; height: 95%;">
+
+  <div class="panel panel-head">
+    <span style="flex: 8"></span>
+    <button class="button" style="flex: 1" (click)="discard()">Descartar</button>
+    <button class="button-accent" style="flex: 1" (click)="save()">Salvar</button>
+  </div>
+
+  <div class="panel panel-body" [formGroup]="productForm">
+    <div class="grid-container">
+      <div class="grid-row">
+        <input class="input" style="flex:1" type="text" id="code" placeholder="Código" formControlName="code">
+        <input class="input" style="flex:3" type="text" id="description" placeholder="Nome do produto" formControlName="description">
+      </div>
+      <div class="grid-row">
+        <input class="input" style="flex:1" type="text" id="price" placeholder="Preço de venda" formControlName="price">
+        <input class="input" style="flex:1" type="text" id="costPrice" placeholder="Preço de custo" formControlName="costPrice">
+        <input class="input" style="flex:1" type="text" id="idCategory" placeholder="Categoria" formControlName="idCategory">
+      </div>
+      <div class="grid-row">
+        <textarea class="input" style="flex: 1; height: 150px" rows="4" cols="100" id="observation" placeholder="Observação" formControlName="observation"></textarea>
+      </div>
+    </div>
+  </div>
+
+</div>
