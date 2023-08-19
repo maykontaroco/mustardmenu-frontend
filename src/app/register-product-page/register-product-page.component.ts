@@ -4,6 +4,9 @@ import {ProductService} from "../services/product.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Product} from "../model/product";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {CategoryService} from "../services/category.service";
+import {Category} from "../model/category";
+import {sample} from "rxjs";
 
 @Component({
   selector: 'app-register-product-page',
@@ -13,15 +16,18 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 export class RegisterProductPageComponent {
   productForm: FormGroup;
   formSubmitted = false;
+  categories: Category[] = [];
 
-  constructor(private productService: ProductService, private router: Router, private fb: FormBuilder, private snackBar: MatSnackBar) {
+  constructor(private productService: ProductService, private categoryService: CategoryService, private router: Router, private fb: FormBuilder, private snackBar: MatSnackBar) {
+    this.getCategories();
     this.productForm = this.fb.group({
       code: ['', Validators.required],
+      name: ['', Validators.required],
       description: ['', Validators.required],
       price: ['', Validators.required],
-      costPrice: ['', Validators.required],
-      idCategory: ['', Validators.required],
-      observation: [''],
+      costPrice: [''],
+      selectedCategory: [this.categories[0]],
+      observation: ['']
     });
   }
 
@@ -35,12 +41,13 @@ export class RegisterProductPageComponent {
       const product = new Product(
         null,
         true,
-        this.productForm.value.description,
+        this.productForm.value.name,
         this.productForm.value.code,
         this.productForm.value.description,
         parseFloat(this.productForm.value.price),
         parseFloat(this.productForm.value.costPrice),
-        this.productForm.value.idCategory,
+        this.productForm.value.selectedCategory.id
+        ,
         this.productForm.value.observation
       );
 
@@ -60,6 +67,12 @@ export class RegisterProductPageComponent {
     this.router.navigate(['/product']);
   }
 
+  getCategories() {
+    this.categoryService.getCategories().subscribe((categories) => {
+      this.categories = categories;
+    });
+  }
+
   showSuccessSnackBar(message: string) {
     this.snackBar.open(message, '', {
       duration: 3000,
@@ -75,4 +88,6 @@ export class RegisterProductPageComponent {
       panelClass: ['snackbar-fail']
     });
   }
+
+  protected readonly sample = sample;
 }

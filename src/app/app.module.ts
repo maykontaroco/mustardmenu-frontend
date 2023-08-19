@@ -5,7 +5,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {LoginPageComponent} from './login-page/login-page.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {HomePageComponent} from './home-page/home-page.component';
 import {DashboardPageComponent} from './dashboard-page/dashboard-page.component';
@@ -20,6 +20,9 @@ import { ProductPageComponent } from './product-page/product-page.component';
 import { RegisterProductPageComponent } from './register-product-page/register-product-page.component';
 import { NgxMaskModule } from 'ngx-mask';
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
   declarations: [
@@ -44,6 +47,10 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     CdkListbox,
     NgxMaskModule.forRoot(),
     MatSnackBarModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    FormsModule,
   ],
   exports: [RouterModule],
   providers: [],

@@ -39,16 +39,6 @@
   margin: 10px
 }
 
-.input-invalid {
-  border-color: #B00020 !important;
-  height: 40px;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin: 10px
-}
-
 .button-accent {
   background-color: var(--accent-color);
   color: var(--text-color);
@@ -129,4 +119,3 @@ body {
   --mat-mdc-snack-bar-button-color: #fff;
   --mdc-snackbar-supporting-text-color: #fff;
 }
-
