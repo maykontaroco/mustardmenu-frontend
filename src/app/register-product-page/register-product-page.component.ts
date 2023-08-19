@@ -3,6 +3,7 @@ import {Router} from "@angular/router";
 import {ProductService} from "../services/product.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Product} from "../model/product";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-register-product-page',
@@ -13,7 +14,7 @@ export class RegisterProductPageComponent {
   productForm: FormGroup;
   formSubmitted = false;
 
-  constructor(private productService: ProductService, private router: Router, private fb: FormBuilder,) {
+  constructor(private productService: ProductService, private router: Router, private fb: FormBuilder, private snackBar: MatSnackBar) {
     this.productForm = this.fb.group({
       code: ['', Validators.required],
       description: ['', Validators.required],
@@ -24,11 +25,11 @@ export class RegisterProductPageComponent {
     });
   }
 
-  discard() {
-    this.router.navigate(['/product']);
+  onDiscard() {
+    this.backPage();
   }
 
-  save() {
+  onSave() {
     this.formSubmitted = true;
     if (this.productForm.valid) {
       const product = new Product(
@@ -45,12 +46,33 @@ export class RegisterProductPageComponent {
 
       this.productService.insertProduct(product).subscribe(
         (response) => {
-          console.log('Produto inserido com sucesso:', response);
+          this.showSuccessSnackBar('Produto inserido com sucesso');
+          this.backPage();
         },
         (error) => {
-          console.error('Erro ao inserir produto:', error);
+          this.showErrorSnackBar('Erro ao inserir produto');
         }
       );
     }
+  }
+
+  backPage() {
+    this.router.navigate(['/product']);
+  }
+
+  showSuccessSnackBar(message: string) {
+    this.snackBar.open(message, '', {
+      duration: 3000,
+      verticalPosition: 'top',
+      panelClass: ['snackbar-success']
+    });
+  }
+
+  showErrorSnackBar(message: string) {
+    this.snackBar.open(message, '', {
+      duration: 3000,
+      verticalPosition: 'top',
+      panelClass: ['snackbar-fail']
+    });
   }
 }

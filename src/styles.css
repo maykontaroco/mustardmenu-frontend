@@ -117,3 +117,16 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+.snackbar-success {
+  --mdc-snackbar-container-color: #64DD17;
+  --mat-mdc-snack-bar-button-color: #fff;
+  --mdc-snackbar-supporting-text-color: #fff;
+}
+
+.snackbar-fail {
+  --mdc-snackbar-container-color: #F44336;
+  --mat-mdc-snack-bar-button-color: #fff;
+  --mdc-snackbar-supporting-text-color: #fff;
+}
+

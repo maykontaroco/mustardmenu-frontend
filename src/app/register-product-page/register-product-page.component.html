@@ -4,8 +4,8 @@
 
   <div class="panel panel-head">
     <span style="flex: 8"></span>
-    <button class="button" style="flex: 1" (click)="discard()">Descartar</button>
-    <button class="button-accent" style="flex: 1" (click)="save()">Salvar</button>
+    <button class="button" style="flex: 1" (click)="onDiscard()">Descartar</button>
+    <button class="button-accent" style="flex: 1" (click)="onSave()">Salvar</button>
   </div>
 
   <div class="panel panel-body" [formGroup]="productForm">
