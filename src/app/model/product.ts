@@ -1,5 +1,5 @@
 export class Product {
-  id: string | null;
+  id: number | null;
   active: boolean;
   description: string;
   code: string;
@@ -9,7 +9,7 @@ export class Product {
   idCategory: string;
   observation: string;
 
-  constructor(id: string | null = null, active: boolean, description: string, code: string, name: string, price: number, costPrice: number, idCategory: string, observation: string) {
+  constructor(id: number | null = null, active: boolean, description: string, code: string, name: string, price: number, costPrice: number, idCategory: string, observation: string) {
     this.id = id;
     this.active = active;
     this.description = description;

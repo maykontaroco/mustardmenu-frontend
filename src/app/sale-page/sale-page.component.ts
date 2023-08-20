@@ -23,16 +23,32 @@ export class SalePageComponent {
       this.filteredProducts = products;
     });
   }
-  addItem(product: Product){
+
+  addItem(product: Product) {
     console.log(product);
-    this.orderItems.push({description: product.description, price: product.price.toFixed(2), quantity: "1"})
+    let qtd = 1;
+    this.orderItems.push(
+      {
+        id: null,
+        idOrder: 1,
+        idProduct: product.id!,
+        canceled: false,
+        quantity: qtd,
+        unityValue: product.price,
+        totalValue: product.price * qtd,
+        costValue: product.costPrice,
+      }
+    )
   }
 
   filterProducts(event: any) {
-    console.log("filter");
     const filterValue = event.target.value.toLowerCase();
     this.filteredProducts = this.products.filter(product =>
       product.name.toLowerCase().includes(filterValue.toLowerCase())
     );
+  }
+
+  findProductById(id: number): Product | undefined {
+    return this.products.find(product => product.id === id);
   }
 }

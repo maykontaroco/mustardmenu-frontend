@@ -27,7 +27,7 @@
         <mat-list>
           <mat-list-item class="mat-list-item" *ngFor="let item of orderItems">
             <div class="grid-description">
-              <label class="label-description">{{ item.description }}</label>
+              <label class="label-description">{{ findProductById(item.idProduct)?.description }}</label>
             </div>
             <div class="item-label grid-quantity">
               <button class="transparent-button">
@@ -39,7 +39,7 @@
               </button>
             </div>
             <div class="item-label item-price">
-              <label>{{'R$ ' + item.price }}</label>
+              <label>{{'R$ ' + item.totalValue.toFixed(2) }}</label>
             </div>
           </mat-list-item>
         </mat-list>
