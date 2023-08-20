@@ -5,7 +5,7 @@
   <div class="panel panel-head">
     <input type="text" class="input" style="flex: 8" placeholder="Pesquisar">
     <button class="button" style="flex: 1">Categoria</button>
-    <button class="button-accent" style="flex: 1" (click)="registerProduct()">Cadastrar</button>
+    <button class="button-accent" style="flex: 1" (click)="onRegisterProduct()">Cadastrar</button>
   </div>
 
   <div class="panel panel-body">
@@ -17,7 +17,7 @@
           <button class="transparent-button" style="margin-right: 10px">
             <span class="icon"><i class="fas fa-edit"></i></span>
           </button>
-          <button class="transparent-button" style="margin-right: 10px">
+          <button class="transparent-button" style="margin-right: 10px" (click)="removeProduct(product)">
             <span class="icon"><i class="fas fa-trash"></i></span>
           </button>
         </div>
