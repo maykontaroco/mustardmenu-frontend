@@ -11,6 +11,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 })
 export class ProductPageComponent {
   products: Product[] = [];
+  filteredProducts: Product[] = [];
 
   constructor(private productService: ProductService, private router: Router, private snackBar: MatSnackBar) {
     this.getProducts();
@@ -23,6 +24,7 @@ export class ProductPageComponent {
   getProducts() {
     this.productService.getProducts().subscribe((products) => {
       this.products = products;
+      this.filteredProducts = products;
     });
   }
 
@@ -35,6 +37,14 @@ export class ProductPageComponent {
       (error) => {
         this.showErrorSnackBar('Erro ao remover produto');
       }
+    );
+  }
+
+  filterProducts(event: any) {
+    console.log("filter");
+    const filterValue = event.target.value.toLowerCase();
+    this.filteredProducts = this.products.filter(product =>
+      product.name.toLowerCase().includes(filterValue.toLowerCase())
     );
   }
 

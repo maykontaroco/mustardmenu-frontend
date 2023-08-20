@@ -89,5 +89,4 @@ export class RegisterProductPageComponent {
     });
   }
 
-  protected readonly sample = sample;
 }

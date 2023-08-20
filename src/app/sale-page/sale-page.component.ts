@@ -10,6 +10,7 @@ import {Product} from "../model/product";
 })
 export class SalePageComponent {
   products: Product[] = [];
+  filteredProducts: Product[] = [];
   orderItems: OrderItem[] = [];
 
   constructor(private productService: ProductService) {
@@ -19,10 +20,19 @@ export class SalePageComponent {
   getProducts() {
     this.productService.getProducts().subscribe((products) => {
       this.products = products;
+      this.filteredProducts = products;
     });
   }
   addItem(product: Product){
     console.log(product);
     this.orderItems.push({description: product.description, price: product.price.toFixed(2), quantity: "1"})
+  }
+
+  filterProducts(event: any) {
+    console.log("filter");
+    const filterValue = event.target.value.toLowerCase();
+    this.filteredProducts = this.products.filter(product =>
+      product.name.toLowerCase().includes(filterValue.toLowerCase())
+    );
   }
 }

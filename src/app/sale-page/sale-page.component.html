@@ -4,11 +4,11 @@
 
   <div style="flex:7; display: flex; flex-direction: column;">
     <div class="panel panel-head">
-      <input type="text" class="input" style="flex: 8" placeholder="Pesquisar">
+      <input type="text" class="input" style="flex: 8" placeholder="Pesquisar" (input)="filterProducts($event)">
     </div>
 
     <div class="panel-products">
-      <button *ngFor="let product of products" class="card card-menu" (click)="addItem(product)">
+      <button *ngFor="let product of filteredProducts" class="card card-menu" (click)="addItem(product)">
         <div class="card-text">{{ product.description.toUpperCase() }}</div>
         <div class="card-price">{{ 'R$ ' + product.price.toFixed(2) }}</div>
       </button>
