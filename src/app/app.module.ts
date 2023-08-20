@@ -23,6 +23,7 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatSelectModule} from "@angular/material/select";
+import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
   declarations: [
@@ -36,22 +37,23 @@ import {MatSelectModule} from "@angular/material/select";
     ProductPageComponent,
     RegisterProductPageComponent,
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    MatListModule,
-    ToastrModule.forRoot(),
-    CdkListbox,
-    NgxMaskModule.forRoot(),
-    MatSnackBarModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    FormsModule,
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        AppRoutingModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        MatListModule,
+        ToastrModule.forRoot(),
+        CdkListbox,
+        NgxMaskModule.forRoot(),
+        MatSnackBarModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSelectModule,
+        FormsModule,
+        MatIconModule,
+    ],
   exports: [RouterModule],
   providers: [],
   bootstrap: [AppComponent]

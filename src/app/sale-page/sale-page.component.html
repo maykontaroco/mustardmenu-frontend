@@ -4,7 +4,10 @@
 
   <div style="flex:7; display: flex; flex-direction: column;">
     <div class="panel panel-head">
-      <input type="text" class="input" style="flex: 8" placeholder="Pesquisar" (input)="filterProducts($event)">
+      <mat-form-field appearance="outline" style="flex: 8; margin-top: 20px">
+        <input matInput placeholder="Pesquisar" (input)="filterProducts($event)">
+        <mat-icon matSuffix style="padding: 0px !important; margin-right: 10px;">search</mat-icon>
+      </mat-form-field>
     </div>
 
     <div class="panel-products">

@@ -3,7 +3,10 @@
 <div style="display: flex; flex-direction: column; height: 95%;">
 
   <div class="panel panel-head">
-    <input type="text" class="input" style="flex: 8" placeholder="Pesquisar" (input)="filterProducts($event)">
+    <mat-form-field appearance="outline" style="flex: 8; margin-top: 20px">
+      <input matInput placeholder="Pesquisar" (input)="filterProducts($event)">
+      <mat-icon matSuffix style="padding: 0px !important; margin-right: 10px;">search</mat-icon>
+    </mat-form-field>
     <button class=" button" style="flex: 1">Categoria</button>
     <button class="button-accent" style="flex: 1" (click)="onRegisterProduct()">Cadastrar</button>
   </div>

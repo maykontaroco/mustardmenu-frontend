@@ -98,6 +98,9 @@
   font-size: 18px;
   margin: 10px;
 }
+icon-suffix .mat-icon {
+  padding: 0px !important;
+}
 
 html, body {
   height: 100%;
