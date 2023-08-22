@@ -31,4 +31,5 @@ export class Order {
     this.items = items;
     this.paymenets = paymenets;
   }
+
 }

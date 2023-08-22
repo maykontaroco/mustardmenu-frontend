@@ -31,10 +31,10 @@
             </div>
             <div class="item-label grid-quantity">
               <button class="transparent-button">
-                <span class="icon"><i class="fas fa-minus"></i></span>
+                <span class="icon"><i class="fas fa-minus" (click)="removeQuantity(item)"></i></span>
               </button>
               <label class="label-quantity">{{ item.quantity }}</label>
-              <button class="transparent-button">
+              <button class="transparent-button" (click)="addQuantity(item)">
                 <span class="icon"><i class="fas fa-plus"></i></span>
               </button>
             </div>
@@ -49,11 +49,11 @@
         <div class="grid-container-total">
           <div class="grid-row-total">
             <label class="label-total-left">Subtotal:</label>
-            <label class="label-total-right">R$ 10,00</label>
+            <label class="label-total-right">{{ 'R$ ' + (order != null ? order.amount.toFixed(2) : '0,00') }}</label>
           </div>
           <div class="grid-row-total">
             <label class="label-total-left">Total:</label>
-            <label class="label-total-right">R$ 10,00</label>
+            <label class="label-total-right">{{ 'R$ ' + (order != null ? order.amount.toFixed(2) : '0,00')}}</label>
           </div>
         </div>
         <div style="height: 50%; display: flex; align-items: center; justify-content: center">
