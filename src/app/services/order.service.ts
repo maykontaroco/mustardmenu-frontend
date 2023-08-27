@@ -18,6 +18,10 @@ export class OrderService {
     this.createOrderUri = this.orderUri + '/create';
   }
 
+  getOrder(idOrder: number): Observable<Order> {
+    return this.http.get<Order>(this.orderUri + '/' + idOrder);
+  }
+
   insertOrder(): Observable<Order> {
     return this.http.post<Order>(this.createOrderUri, null);
   }
@@ -26,10 +30,15 @@ export class OrderService {
   // Business Rules
   setItems(order: Order, items: OrderItem[]) {
     order.items = items;
+    this.refreshTotal(order);
+  }
 
+  refreshTotal(order: Order) {
     order.amount = 0;
-    items.forEach(item => {
+    order.items.forEach(item => {
       order.amount += item.totalValue;
     })
+    order.amount += order.addition;
+    order.amount -= order.discount;
   }
 }

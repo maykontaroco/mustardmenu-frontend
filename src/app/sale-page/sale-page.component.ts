@@ -6,6 +6,7 @@ import {OrderService} from "../services/order.service";
 import {Order} from "../model/order";
 import {lastValueFrom} from "rxjs";
 import {OrderItemService} from "../services/order-item.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-sale-page',
@@ -18,7 +19,7 @@ export class SalePageComponent {
   orderItems: OrderItem[] = [];
   order!: Order;
 
-  constructor(private productService: ProductService, private orderService: OrderService, private orderItemService: OrderItemService) {
+  constructor(private productService: ProductService, private orderService: OrderService, private orderItemService: OrderItemService, private router: Router) {
     this.getProducts();
   }
 
@@ -45,6 +46,7 @@ export class SalePageComponent {
       unitValue: product.price,
       totalValue: product.price,
       costValue: product.costPrice,
+      description: product.description,
     }
 
     console.log('item: ', item);
@@ -102,5 +104,9 @@ export class SalePageComponent {
 
   findProductById(id: number): Product | undefined {
     return this.products.find(product => product.id === id);
+  }
+
+  openSalePayment() {
+    this.router.navigate(['/payment', this.order.id]);
   }
 }

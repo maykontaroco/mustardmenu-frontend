@@ -52,6 +52,19 @@
   border-bottom: 2px solid lightgray;
 }
 
+.button-dark {
+  background-color: var(--dark-color);
+  color: var(--accent-color);
+  margin: 5px;
+  padding: 10px;
+  height: 50px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  border-right: 2px solid lightgray;
+  border-bottom: 2px solid lightgray;
+}
+
 .button {
   background-color: var(--background-color);
   color: var(--text-dark-color);
@@ -70,6 +83,10 @@
 }
 
 .button-accent:hover {
+  opacity: 70%;
+}
+
+.button-dark:hover {
   opacity: 70%;
 }
 

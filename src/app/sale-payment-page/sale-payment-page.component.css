@@ -1,0 +1,27 @@
+.button-payment {
+  margin: 10px;
+  text-align: start;
+  font-size: 20px;
+}
+
+.icon-payment {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.label-total {
+  font-size: 36px;
+  font-weight: bold;
+  padding: 20px;
+}
+
+.label-subtotal {
+  font-size: 20px;
+  padding: 15px;
+}
+
+.label-item {
+  font-size: 20px;
+  padding: 15px;
+}
+
