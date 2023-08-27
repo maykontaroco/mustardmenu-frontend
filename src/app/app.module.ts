@@ -4,27 +4,27 @@ import {BrowserModule} from '@angular/platform-browser';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {LoginPageComponent} from './login-page/login-page.component';
+import {LoginPageComponent} from './view/login-page/login-page.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
-import {HomePageComponent} from './home-page/home-page.component';
-import {DashboardPageComponent} from './dashboard-page/dashboard-page.component';
+import {HomePageComponent} from './view/home-page/home-page.component';
+import {DashboardPageComponent} from './view/dashboard-page/dashboard-page.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {BodyComponent} from "./body/body.component";
 import {SidenavComponent} from "./sidenav/sidenav.component";
 import {MatListModule} from '@angular/material/list';
 import {ToastrModule} from "ngx-toastr";
-import {SalePageComponent} from './sale-page/sale-page.component';
+import {SalePageComponent} from './view/sale-page/sale-page.component';
 import {CdkListbox} from "@angular/cdk/listbox";
-import { ProductPageComponent } from './product-page/product-page.component';
-import { RegisterProductPageComponent } from './register-product-page/register-product-page.component';
+import { ProductPageComponent } from './view/product-page/product-page.component';
+import { RegisterProductPageComponent } from './view/register-product-page/register-product-page.component';
 import { NgxMaskModule } from 'ngx-mask';
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatSelectModule} from "@angular/material/select";
 import {MatIconModule} from "@angular/material/icon";
-import { SalePaymentPageComponent } from './sale-payment-page/sale-payment-page.component';
+import { SalePaymentPageComponent } from './view/sale-payment-page/sale-payment-page.component';
 
 @NgModule({
   declarations: [

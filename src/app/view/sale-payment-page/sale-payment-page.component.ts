@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
-import {PaymentTypes} from "../enumerator/payment-type";
+import {PaymentTypes} from "../../enumerator/payment-type";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {ActivatedRoute} from "@angular/router";
-import {Order} from "../model/order";
-import {OrderService} from "../services/order.service";
+import {Order} from "../../model/order";
+import {OrderService} from "../../services/order.service";
 
 @Component({
   selector: 'app-sale-payment-page',

@@ -1,12 +1,12 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {LoginPageComponent} from "./login-page/login-page.component";
-import {DashboardPageComponent} from "./dashboard-page/dashboard-page.component";
-import {HomePageComponent} from "./home-page/home-page.component";
-import {SalePageComponent} from "./sale-page/sale-page.component";
-import {ProductPageComponent} from "./product-page/product-page.component";
-import {RegisterProductPageComponent} from "./register-product-page/register-product-page.component";
-import {SalePaymentPageComponent} from "./sale-payment-page/sale-payment-page.component";
+import {LoginPageComponent} from "./view/login-page/login-page.component";
+import {DashboardPageComponent} from "./view/dashboard-page/dashboard-page.component";
+import {HomePageComponent} from "./view/home-page/home-page.component";
+import {SalePageComponent} from "./view/sale-page/sale-page.component";
+import {ProductPageComponent} from "./view/product-page/product-page.component";
+import {RegisterProductPageComponent} from "./view/register-product-page/register-product-page.component";
+import {SalePaymentPageComponent} from "./view/sale-payment-page/sale-payment-page.component";
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'}, // Rota padrão para a página inicial

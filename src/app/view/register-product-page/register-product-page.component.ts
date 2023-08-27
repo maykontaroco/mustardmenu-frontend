@@ -1,11 +1,11 @@
 import {Component} from '@angular/core';
 import {Router} from "@angular/router";
-import {ProductService} from "../services/product.service";
+import {ProductService} from "../../services/product.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {Product} from "../model/product";
+import {Product} from "../../model/product";
 import {MatSnackBar} from "@angular/material/snack-bar";
-import {CategoryService} from "../services/category.service";
-import {Category} from "../model/category";
+import {CategoryService} from "../../services/category.service";
+import {Category} from "../../model/category";
 import {sample} from "rxjs";
 
 @Component({

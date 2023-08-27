@@ -1,11 +1,11 @@
 import {Component} from '@angular/core';
-import {OrderItem} from "../model/order-item";
-import {ProductService} from "../services/product.service";
-import {Product} from "../model/product";
-import {OrderService} from "../services/order.service";
-import {Order} from "../model/order";
+import {OrderItem} from "../../model/order-item";
+import {ProductService} from "../../services/product.service";
+import {Product} from "../../model/product";
+import {OrderService} from "../../services/order.service";
+import {Order} from "../../model/order";
 import {lastValueFrom} from "rxjs";
-import {OrderItemService} from "../services/order-item.service";
+import {OrderItemService} from "../../services/order-item.service";
 import {Router} from "@angular/router";
 
 @Component({
