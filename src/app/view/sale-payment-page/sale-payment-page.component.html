@@ -42,7 +42,7 @@
         <h1>Selecione o meio de pagamento:</h1>
 
         <div *ngFor="let paymentType of paymentTypes" style="display: flex;">
-          <button class="button-dark button-payment" style="flex: 1" (click)="addPayment()">
+          <button class="button-dark button-payment" style="flex: 1" (click)="addPayment(paymentType)">
             <mat-icon class="icon-payment">{{paymentType.icon}}</mat-icon>
             {{paymentType.description}}
           </button>

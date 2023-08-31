@@ -1,13 +1,16 @@
 import {Component} from '@angular/core';
-import {PaymentTypes} from "../../enumerator/payment-type";
+import {PaymentType, PaymentTypes} from "../../enumerator/payment-type";
 import {FormBuilder, FormGroup} from "@angular/forms";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {Order} from "../../model/order";
 import {OrderService} from "../../services/order.service";
 import {MatDialog} from "@angular/material/dialog";
 import {PopupAdditionComponent} from "../popup-addition/popup-addition.component";
 import {PopupDiscountComponent} from "../popup-discount/popup-discount.component";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {OrderPayment} from "../../model/order-payment";
+import {OrderPaymentService} from "../../services/order-payment.service";
+import {lastValueFrom} from "rxjs";
 
 @Component({
   selector: 'app-sale-payment-page',
@@ -18,9 +21,10 @@ export class SalePaymentPageComponent {
   paymentTypes = PaymentTypes;
   form: FormGroup;
   order: Order | undefined;
+  orderPaymenets: OrderPayment[] = [];
 
 
-  constructor(private route: ActivatedRoute, private fb: FormBuilder, private orderService: OrderService, public dialog: MatDialog, private snackBar: MatSnackBar) {
+  constructor(private orderPaymentService: OrderPaymentService, private router: Router, private route: ActivatedRoute, private fb: FormBuilder, private orderService: OrderService, public dialog: MatDialog, private snackBar: MatSnackBar) {
     this.form = this.fb.group({
       observation: ['']
     });
@@ -36,9 +40,23 @@ export class SalePaymentPageComponent {
   }
 
 
-  addPayment() {
-    console.log('add payment: ', this.order);
+  async addPayment(paymentType: PaymentType) {
 
+    const payment: OrderPayment = {
+      id: null,
+      idOrder: this.order?.id!,
+      type: paymentType?.type,
+      value: this.order?.amount!
+    }
+
+    const paymentReturn = await lastValueFrom(this.orderPaymentService.insertPayment(payment));
+
+    this.orderPaymenets = [];
+    this.orderPaymenets.push(paymentReturn);
+    console.log('add payment: ', this.orderPaymenets);
+
+    this.showSnackBar('Venda finalizada');
+    this.router.navigate(['/sale']);
   }
 
   addAddition(value: number) {
