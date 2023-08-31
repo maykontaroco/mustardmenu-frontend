@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>Desconto</h1>
+
+  <form [formGroup]="form">
+    <div style="display: flex; flex-direction: column;">
+      <mat-form-field class="input-full-width" appearance="outline">
+        <mat-label>Valor de desconto</mat-label>
+        <input matInput mask="separator.2" thousandSeparator="." decimalMarker=","
+               id="value" placeholder="0,00" formControlName="additionValue">
+      </mat-form-field>
+      <button class="button-accent" style="flex: 1" (click)="applyDiscount()">Confirmar</button>
+    </div>
+  </form>
+</div>

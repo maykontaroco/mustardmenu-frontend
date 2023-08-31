@@ -16,15 +16,18 @@ import {MatListModule} from '@angular/material/list';
 import {ToastrModule} from "ngx-toastr";
 import {SalePageComponent} from './view/sale-page/sale-page.component';
 import {CdkListbox} from "@angular/cdk/listbox";
-import { ProductPageComponent } from './view/product-page/product-page.component';
-import { RegisterProductPageComponent } from './view/register-product-page/register-product-page.component';
-import { NgxMaskModule } from 'ngx-mask';
+import {ProductPageComponent} from './view/product-page/product-page.component';
+import {RegisterProductPageComponent} from './view/register-product-page/register-product-page.component';
+import {NgxMaskModule} from 'ngx-mask';
 import {MatSnackBarModule} from "@angular/material/snack-bar";
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from "@angular/material/select";
 import {MatIconModule} from "@angular/material/icon";
-import { SalePaymentPageComponent } from './view/sale-payment-page/sale-payment-page.component';
+import {SalePaymentPageComponent} from './view/sale-payment-page/sale-payment-page.component';
+import { PopupAdditionComponent } from './view/popup-addition/popup-addition.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import { PopupDiscountComponent } from './view/popup-discount/popup-discount.component';
 
 @NgModule({
   declarations: [
@@ -38,27 +41,31 @@ import { SalePaymentPageComponent } from './view/sale-payment-page/sale-payment-
     ProductPageComponent,
     RegisterProductPageComponent,
     SalePaymentPageComponent,
+    PopupAdditionComponent,
+    PopupDiscountComponent,
   ],
-    imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
-        AppRoutingModule,
-        HttpClientModule,
-        ReactiveFormsModule,
-        MatListModule,
-        ToastrModule.forRoot(),
-        CdkListbox,
-        NgxMaskModule.forRoot(),
-        MatSnackBarModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatSelectModule,
-        FormsModule,
-        MatIconModule,
-    ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    MatListModule,
+    ToastrModule.forRoot(),
+    CdkListbox,
+    NgxMaskModule.forRoot(),
+    MatSnackBarModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    FormsModule,
+    MatIconModule,
+    MatDialogModule,
+  ],
   exports: [RouterModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
 })
 export class AppModule {
 
