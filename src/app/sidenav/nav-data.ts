@@ -15,7 +15,7 @@ export const navbarData = [
     label: 'Produtos'
   },
   {
-    routeLink: 'statistics',
+    routeLink: 'history',
     icon: 'fal fa-chart-bar',
     label: 'Histórico de Vendas'
   },

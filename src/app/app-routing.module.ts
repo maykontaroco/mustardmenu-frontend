@@ -7,6 +7,7 @@ import {SalePageComponent} from "./view/sale-page/sale-page.component";
 import {ProductPageComponent} from "./view/product-page/product-page.component";
 import {RegisterProductPageComponent} from "./view/register-product-page/register-product-page.component";
 import {SalePaymentPageComponent} from "./view/sale-payment-page/sale-payment-page.component";
+import {SaleHistoryPageComponent} from "./view/sale-history-page/sale-history-page.component";
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'}, // Rota padrão para a página inicial
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'home', component: HomePageComponent}, // Rota para a nova página
   {path: 'sale', component: SalePageComponent}, // Rota para a nova página
   {path: 'payment/:id', component: SalePaymentPageComponent}, // Rota para a nova página
+  {path: 'history', component: SaleHistoryPageComponent}, // Rota para a nova página
   {path: 'product', component: ProductPageComponent}, // Rota para a nova página
   {path: 'register-product', component: RegisterProductPageComponent}, // Rota para a nova página
   {path: 'dashboard', component: DashboardPageComponent}, // Rota para a nova página

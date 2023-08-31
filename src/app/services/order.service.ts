@@ -22,6 +22,10 @@ export class OrderService {
     return this.http.get<Order>(this.orderUri + '/' + idOrder);
   }
 
+  getOrders(): Observable<Order[]> {
+    return this.http.get<Order[]>(this.orderUri);
+  }
+
   insertOrder(): Observable<Order> {
     return this.http.post<Order>(this.createOrderUri, null);
   }

@@ -1,0 +1,55 @@
+<h1> Histórico de vendas </h1>
+
+<div style="display: flex; flex-direction: column; height: 95%;">
+
+  <div class="panel panel-head">
+    <mat-form-field appearance="outline" style="flex: 1; margin-top: 20px">
+      <input matInput placeholder="Pesquisar">
+      <mat-icon matSuffix style="padding: 0px !important; margin-right: 10px;">search</mat-icon>
+    </mat-form-field>
+  </div>
+
+  <div class="panel">
+    <table mat-table [dataSource]="dataSource">
+
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> Número</th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef> Data/Hora</th>
+        <td mat-cell *matCellDef="let element"> {{element.date | date: 'dd/MM/yyyy HH:mm'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef> Status</th>
+        <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="items">
+        <th mat-header-cell *matHeaderCellDef> Itens</th>
+        <td mat-cell
+            *matCellDef="let element"> {{element.items.length === 1 ? '1 Item' : (element.items.length + ' Itens')}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="amount">
+        <th mat-header-cell *matHeaderCellDef> Valor</th>
+        <td mat-cell *matCellDef="let element"> R$ {{element.amount.toFixed(2)}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="detail">
+        <th mat-header-cell *matHeaderCellDef> Detalhes </th>
+        <td mat-cell *matCellDef="let element">
+          <button class="transparent-button">
+            <mat-icon>search</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+  </div>
+</div>

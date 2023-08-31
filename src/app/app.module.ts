@@ -28,6 +28,8 @@ import {SalePaymentPageComponent} from './view/sale-payment-page/sale-payment-pa
 import { PopupAdditionComponent } from './view/popup-addition/popup-addition.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import { PopupDiscountComponent } from './view/popup-discount/popup-discount.component';
+import { SaleHistoryPageComponent } from './view/sale-history-page/sale-history-page.component';
+import {MatTableModule} from "@angular/material/table";
 
 @NgModule({
   declarations: [
@@ -43,6 +45,7 @@ import { PopupDiscountComponent } from './view/popup-discount/popup-discount.com
     SalePaymentPageComponent,
     PopupAdditionComponent,
     PopupDiscountComponent,
+    SaleHistoryPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,6 +64,7 @@ import { PopupDiscountComponent } from './view/popup-discount/popup-discount.com
     FormsModule,
     MatIconModule,
     MatDialogModule,
+    MatTableModule,
   ],
   exports: [RouterModule],
   providers: [],
