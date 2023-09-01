@@ -12,10 +12,12 @@ export class OrderService {
 
   private orderUri: string;
   private createOrderUri: string;
+  private cancelOrderUri: string;
 
   constructor(private http: HttpClient) {
     this.orderUri = environment.urlApi + environment.basePath + '/order';
     this.createOrderUri = this.orderUri + '/create';
+    this.cancelOrderUri = this.orderUri + '/{id}/cancel';
   }
 
   getOrder(idOrder: number): Observable<Order> {
@@ -30,6 +32,9 @@ export class OrderService {
     return this.http.post<Order>(this.createOrderUri, null);
   }
 
+  cancerOrder(id: number): Observable<Order> {
+    return this.http.put<Order>(this.cancelOrderUri.replace('{id}', '' + id), null);
+  }
 
   // Business Rules
   setItems(order: Order, items: OrderItem[]) {

@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {OrderService} from "../../services/order.service";
 import {Order} from "../../model/order";
-import {PaymentTypes} from "../../enumerator/payment-type";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-sale-detail-page',
@@ -13,7 +13,7 @@ export class SaleDetailPageComponent {
   idOrder: number | undefined;
   order: Order | undefined;
 
-  constructor(private route: ActivatedRoute, private orderService: OrderService) {
+  constructor(private route: ActivatedRoute, private orderService: OrderService, private snackBar: MatSnackBar) {
 
   }
 
@@ -24,5 +24,28 @@ export class SaleDetailPageComponent {
     });
   }
 
-  protected readonly PaymentTypes = PaymentTypes;
+  onCancel() {
+    this.orderService.cancerOrder(this.idOrder!).subscribe(value => {
+      this.order!.status = 'Cancelada';
+      this.showSuccessSnackBar('Venda cancelada');
+    }, error => {
+      this.showErrorSnackBar('Erro ao cancelar a venda');
+    })
+  }
+
+  showSuccessSnackBar(message: string) {
+    this.snackBar.open(message, '', {
+      duration: 3000,
+      verticalPosition: 'top',
+      panelClass: ['snackbar-success']
+    });
+  }
+
+  showErrorSnackBar(message: string) {
+    this.snackBar.open(message, '', {
+      duration: 3000,
+      verticalPosition: 'top',
+      panelClass: ['snackbar-fail']
+    });
+  }
 }

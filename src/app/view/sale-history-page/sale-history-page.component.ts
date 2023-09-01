@@ -27,4 +27,8 @@ export class SaleHistoryPageComponent {
     console.log('id: ', id);
     this.router.navigate(['/detail/' + id]);
   }
+
+  isCancelled(status: string): boolean {
+    return status === 'Cancelada';
+  }
 }
