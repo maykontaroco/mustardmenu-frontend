@@ -14,9 +14,9 @@ export class Order {
   discount: number;
   observation: string;
   items: OrderItem[];
-  paymenets: OrderPayment[];
+  payments: OrderPayment[];
 
-  constructor(id: number | null, status: string, date: Date, updateDate: Date, idCashier: number, idUser: number, idClient: number, amount: number, addition: number, discount: number, observation: string, items: OrderItem[], paymenets: OrderPayment[]) {
+  constructor(id: number | null, status: string, date: Date, updateDate: Date, idCashier: number, idUser: number, idClient: number, amount: number, addition: number, discount: number, observation: string, items: OrderItem[], payments: OrderPayment[]) {
     this.id = id;
     this.status = status;
     this.date = date;
@@ -29,7 +29,7 @@ export class Order {
     this.discount = discount;
     this.observation = observation;
     this.items = items;
-    this.paymenets = paymenets;
+    this.payments = payments;
   }
 
 }

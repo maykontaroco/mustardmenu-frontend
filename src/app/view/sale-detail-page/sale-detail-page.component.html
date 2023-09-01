@@ -1,0 +1,70 @@
+<h1> Detalhes da venda #{{idOrder}}</h1>
+
+<div style="display: flex; flex-direction: column; height: 95%;">
+
+  <div class="panel panel-head">
+    <div style="display: flex; flex-direction: row; flex: 1;">
+      <div style="display:flex; flex-direction: row; flex: 9; align-items: center;">
+        <h1 style="margin-top: 12px;">Status:</h1>
+        <label class="label">{{order?.status}}</label>
+      </div>
+      <button class=" button" style="flex: 1">Cancelar</button>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: row; height: 95%">
+    <div class="panel" style="flex:1; padding: 10px;">
+      <h1>Itens:</h1>
+      <mat-nav-list>
+        <mat-list-item *ngFor="let item of order?.items">
+          <div style="display: flex">
+            <label class="label" style="flex: 1;">{{item.quantity}}x {{ item.description }}</label>
+            <label class="label">R$ {{ item.totalValue.toFixed(2)}}</label>
+          </div>
+        </mat-list-item>
+      </mat-nav-list>
+    </div>
+
+    <div style="flex: 2; display: flex; flex-direction: column">
+      <div style="flex:1; display: flex; flex-direction: row;">
+        <div class="panel" style="flex:1; display:flex; flex-direction: column; padding: 10px;">
+          <h1>Pagamento:</h1>
+          <mat-nav-list>
+            <mat-list-item *ngFor="let payment of order?.payments">
+              <div style="display: flex">
+                <label class="label" style="flex: 1;">{{payment.type}}</label>
+                <label class="label">R$ {{ payment.value.toFixed(2)}}</label>
+              </div>
+            </mat-list-item>
+          </mat-nav-list>
+        </div>
+        <div class="panel" style="flex:1; padding: 10px;">
+          <h1>Resumo da venda:</h1>
+          <div style="display: flex">
+            <label class="label" style="flex: 1;">Subtotal de produtos</label>
+            <label class="label">R$ {{ order?.amount?.toFixed(2)}}</label>
+          </div>
+          <div style="display: flex">
+            <label class="label" style="flex: 1;">Acréscimos</label>
+            <label class="label">R$ {{ order?.addition?.toFixed(2)}}</label>
+          </div>
+          <div style="display: flex">
+            <label class="label" style="flex: 1;">Descontos</label>
+            <label class="label">R$ {{ order?.discount?.toFixed(2)}}</label>
+          </div>
+          <div style="display: flex">
+            <label class="label-bold" style="flex: 1;">Total</label>
+            <label class="label-bold">R$ {{ order?.amount?.toFixed(2)}}</label>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="panel" style="flex:1; padding: 10px;">
+        <h1>Observação:</h1>
+        <label class="label">{{ order?.observation }}</label>
+      </div>
+    </div>
+
+  </div>
+</div>

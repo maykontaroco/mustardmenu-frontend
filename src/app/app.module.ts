@@ -30,6 +30,7 @@ import {MatDialogModule} from "@angular/material/dialog";
 import { PopupDiscountComponent } from './view/popup-discount/popup-discount.component';
 import { SaleHistoryPageComponent } from './view/sale-history-page/sale-history-page.component';
 import {MatTableModule} from "@angular/material/table";
+import { SaleDetailPageComponent } from './view/sale-detail-page/sale-detail-page.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import {MatTableModule} from "@angular/material/table";
     PopupAdditionComponent,
     PopupDiscountComponent,
     SaleHistoryPageComponent,
+    SaleDetailPageComponent,
   ],
   imports: [
     BrowserModule,
