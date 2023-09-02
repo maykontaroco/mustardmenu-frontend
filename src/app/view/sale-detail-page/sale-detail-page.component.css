@@ -1,9 +1,23 @@
+.panel {
+  background-color: #FFFFFF;
+  border-radius: 6px;
+  padding: 10px;
+}
+
 .panel-head {
+  width: calc(95%);
   height: 80px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.panel-body {
+  width: calc(95%);
+  height: 95%;
+  display: flex;
+  flex-direction: row;
 }
 
 .label {

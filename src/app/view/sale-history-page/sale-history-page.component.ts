@@ -12,6 +12,7 @@ import {Router} from "@angular/router";
 export class SaleHistoryPageComponent {
   displayedColumns: string[] = ['id', 'date', 'status', 'items', 'amount', 'detail'];
   orders: Order[] = [];
+  filteredOrders: Order[] = [];
   dataSource = new MatTableDataSource(this.orders);
 
   constructor(private orderService: OrderService, private router: Router) {
@@ -19,8 +20,13 @@ export class SaleHistoryPageComponent {
 
   ngOnInit() {
     this.orderService.getOrders().subscribe(value => {
-      this.dataSource = new MatTableDataSource(value);
+      this.orders = value;
+      this.refreshOrders(this.orders);
     });
+  }
+
+  refreshOrders(orders: Order[]){
+    this.dataSource = new MatTableDataSource(orders);
   }
 
   onDetailSale(id: any) {
@@ -30,5 +36,18 @@ export class SaleHistoryPageComponent {
 
   isCancelled(status: string): boolean {
     return status === 'Cancelada';
+  }
+
+  filterProducts(event: any) {
+    console.log("filter");
+    const filterValue = event.target.value.toLowerCase();
+    this.filteredOrders = this.orders.filter(order =>
+      ('' + order.id).toLowerCase().includes(filterValue.toLowerCase())
+    );
+
+    if(event)
+      this.refreshOrders(this.filteredOrders);
+    else
+      this.refreshOrders(this.orders);
   }
 }

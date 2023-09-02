@@ -1,4 +1,5 @@
 .panel-head {
+  width: calc(95%);
   height: 80px;
   display: flex;
   flex-direction: row;
@@ -8,4 +9,12 @@
 
 .cancelled-row {
   color: red;
+}
+
+.panel-body {
+  width: calc(95%);
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  padding: 30px;
 }

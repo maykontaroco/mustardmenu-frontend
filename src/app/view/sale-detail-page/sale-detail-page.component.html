@@ -2,18 +2,20 @@
 
 <div style="display: flex; flex-direction: column; height: 95%;">
 
-  <div class="panel panel-head">
-    <div style="display: flex; flex-direction: row; flex: 1;">
-      <div style="display:flex; flex-direction: row; flex: 9; align-items: center;">
-        <h1 style="margin-top: 12px;">Status:</h1>
-        <label class="label">{{order?.status}}</label>
+  <div class="panel-head">
+    <div class="panel" style="flex: 1;">
+      <div style="display: flex; flex-direction: row; flex: 1;">
+        <div style="display:flex; flex-direction: row; flex: 9; align-items: center;">
+          <h1 style="margin-top: 12px;">Status:</h1>
+          <label class="label">{{order?.status}}</label>
+        </div>
+        <button class=" button" style="flex: 1" (click)="onCancel()" *ngIf="isCancelled()">Cancelar</button>
       </div>
-      <button class=" button" style="flex: 1" (click)="onCancel()" *ngIf="isCancelled()">Cancelar</button>
     </div>
   </div>
 
-  <div style="display: flex; flex-direction: row; height: 95%">
-    <div class="panel" style="flex:1; padding: 10px;">
+  <div class="panel-body">
+    <div class="panel" style="flex:1;">
       <h1>Itens:</h1>
       <mat-nav-list>
         <mat-list-item *ngFor="let item of order?.items">
@@ -27,7 +29,7 @@
 
     <div style="flex: 2; display: flex; flex-direction: column">
       <div style="flex:1; display: flex; flex-direction: row;">
-        <div class="panel" style="flex:1; display:flex; flex-direction: column; padding: 10px;">
+        <div class="panel" style="flex:1; display:flex; flex-direction: column;">
           <h1>Pagamento:</h1>
           <mat-nav-list>
             <mat-list-item *ngFor="let payment of order?.payments">
@@ -38,7 +40,7 @@
             </mat-list-item>
           </mat-nav-list>
         </div>
-        <div class="panel" style="flex:1; padding: 10px;">
+        <div class="panel" style="flex:1;">
           <h1>Resumo da venda:</h1>
           <div style="display: flex">
             <label class="label" style="flex: 1;">Subtotal de produtos</label>
@@ -60,7 +62,7 @@
 
       </div>
 
-      <div class="panel" style="flex:1; padding: 10px;">
+      <div class="panel" style="flex:1;">
         <h1>Observação:</h1>
         <label class="label">{{ order?.observation }}</label>
       </div>
