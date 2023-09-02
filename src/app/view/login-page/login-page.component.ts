@@ -28,7 +28,7 @@ export class LoginPageComponent implements OnInit {
 
   login() {
     this.loginService.login(this.loginForm.value.username, Md5.hashStr((this.loginForm.value.password))).subscribe(response => {
-      this.router.navigate(['/home']);
+      this.router.navigate(['/dashboard']);
     }, err => {
       console.log(err.status);
       this.toastr.error('Mensagem de erro!', 'Título');

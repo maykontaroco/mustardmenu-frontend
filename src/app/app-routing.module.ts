@@ -11,7 +11,7 @@ import {SaleHistoryPageComponent} from "./view/sale-history-page/sale-history-pa
 import {SaleDetailPageComponent} from "./view/sale-detail-page/sale-detail-page.component";
 
 const routes: Routes = [
-  {path: '', redirectTo: 'home', pathMatch: 'full'}, // Rota padrão para a página inicial
+  {path: '', redirectTo: 'login', pathMatch: 'full'}, // Rota padrão para a página inicial
   {path: 'login', component: LoginPageComponent}, // Rota para a página inicial (outra página já existente)
   {path: 'home', component: HomePageComponent}, // Rota para a nova página
   {path: 'sale', component: SalePageComponent}, // Rota para a nova página

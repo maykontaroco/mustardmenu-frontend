@@ -54,10 +54,10 @@
 
     <form style="padding-top: 50px" [formGroup]="loginForm" (submit)="login()">
       <div class="input-with-icon" style="padding-top: 20px">
-        <input class="input" type="text" id="username" placeholder="Username" formControlName="username">
+        <input class="input" autofocus type="text" id="username" placeholder="Username" formControlName="username">
       </div>
       <div class="input-with-icon" style="padding-top: 20px">
-        <input class="input" type="password" id="password" placeholder="Password" formControlName="password">
+        <input class="input" type="password" id="password" placeholder="Password" formControlName="password" (keyup.enter)="login()">
       </div>
     </form>
 
@@ -66,7 +66,7 @@
     </div>
 
     <div style="padding-top: 40px">
-      <button class="button-accent" type="button" (click)="login()">Entrar</button>
+      <button class="button-accent" type="submit">Entrar</button>
     </div>
     <div class="blank-line"></div>
     <label class="right-label">{{version}}</label>

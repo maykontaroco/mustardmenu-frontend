@@ -29,7 +29,7 @@
 }
 
 .bg-image {
-  background-image: url('/src/assets/background_login.jpg');
+  background-image: url('../../../assets/background_login.jpg');
   background-size: cover;
   height: 100vh;
 }
