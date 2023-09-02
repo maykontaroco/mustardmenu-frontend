@@ -10,7 +10,6 @@ import {PopupDiscountComponent} from "../popup-discount/popup-discount.component
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {OrderPayment} from "../../model/order-payment";
 import {OrderPaymentService} from "../../services/order-payment.service";
-import {lastValueFrom} from "rxjs";
 
 @Component({
   selector: 'app-sale-payment-page',
@@ -39,9 +38,7 @@ export class SalePaymentPageComponent {
     });
   }
 
-
-  async addPayment(paymentType: PaymentType) {
-
+  addPayment(paymentType: PaymentType) {
     const payment: OrderPayment = {
       id: null,
       idOrder: this.order?.id!,
@@ -49,14 +46,19 @@ export class SalePaymentPageComponent {
       value: this.order?.amount!
     }
 
-    const paymentReturn = await lastValueFrom(this.orderPaymentService.insertPayment(payment));
+    this.orderPaymentService.insertPayment(payment).subscribe(
+      value => {
+        this.orderPaymenets = [];
+        this.orderPaymenets.push(value);
+        console.log('add payment: ', this.orderPaymenets);
 
-    this.orderPaymenets = [];
-    this.orderPaymenets.push(paymentReturn);
-    console.log('add payment: ', this.orderPaymenets);
-
-    this.showSnackBar('Venda finalizada');
-    this.router.navigate(['/sale']);
+        this.showSuccessSnackBar('Venda finalizada');
+        this.router.navigate(['/sale']);
+      },
+      error => {
+        this.showErrorSnackBar('Erro ao inserir pagamento');
+      }
+    );
   }
 
   addAddition(value: number) {
@@ -72,7 +74,7 @@ export class SalePaymentPageComponent {
       return;
 
     if (value >= (this.order.amount + this.order.discount)) {
-      this.showSnackBar('Desconto inválido');
+      this.showErrorSnackBar('Desconto inválido');
       return;
     }
 
@@ -108,7 +110,15 @@ export class SalePaymentPageComponent {
     });
   }
 
-  showSnackBar(message: string) {
+  showSuccessSnackBar(message: string) {
+    this.snackBar.open(message, '', {
+      duration: 3000,
+      verticalPosition: 'top',
+      panelClass: ['snackbar-success']
+    });
+  }
+
+  showErrorSnackBar(message: string) {
     this.snackBar.open(message, '', {
       duration: 3000,
       verticalPosition: 'top',

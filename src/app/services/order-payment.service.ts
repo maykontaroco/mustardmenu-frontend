@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment.development";
 import {Observable} from "rxjs";
@@ -9,13 +9,13 @@ import {OrderPayment} from "../model/order-payment";
 })
 export class OrderPaymentService {
 
-  private orderUri: string;
+  private orderPaymentUri: string;
 
   constructor(private http: HttpClient) {
-    this.orderUri = environment.urlApi + environment.basePath + '/order/';
+    this.orderPaymentUri = environment.urlApi + environment.basePath + '/order/{id}/payment';
   }
 
   insertPayment(payment: OrderPayment): Observable<OrderPayment> {
-    return this.http.post<OrderPayment>(this.orderUri + payment.idOrder + '/payment', payment);
+    return this.http.post<OrderPayment>(this.orderPaymentUri.replace('{id}', '' + payment.idOrder), payment);
   }
 }
