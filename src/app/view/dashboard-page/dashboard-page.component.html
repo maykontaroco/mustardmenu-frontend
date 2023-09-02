@@ -1,1 +1,29 @@
-<p>dashboard-page works!</p>
+<h1>Dashboard</h1>
+
+<div style="display: flex; flex-direction: column; height: 95%;">
+
+  <div class="container" style="flex: 1;">
+    <h1>Hoje</h1>
+
+    <div class="panel-dashboard">
+      <div *ngFor="let dashValue of dashValuesToday" class="base-card-dashboard card-dashboard-accent">
+        <label class="label-dashboard label-title-dashboard-accent"> {{ dashValue.description }}</label>
+        <div class="line-separator-accent"></div>
+        <label
+          class="label-dashboard label-value-dashboard-accent"> {{ dashValue.type == 'MONEY' ? ('R$ ' + dashValue.value.toFixed(2)) : (dashValue.value) }}</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" style="flex: 1;">
+    <h1>Semana</h1>
+    <div class="panel-dashboard">
+      <div *ngFor="let dashValue of dashValuesWeek" class="base-card-dashboard card-dashboard">
+        <label class="label-dashboard label-title-dashboard"> {{ dashValue.description }}</label>
+        <div class="line-separator"></div>
+        <label
+          class="label-dashboard label-value-dashboard"> {{ dashValue.type == 'MONEY' ? ('R$ ' + dashValue.value.toFixed(2)) : (dashValue.value) }}</label>
+      </div>
+    </div>
+  </div>
+</div>
