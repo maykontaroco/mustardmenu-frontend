@@ -8,7 +8,7 @@
         <h1 style="margin-top: 12px;">Status:</h1>
         <label class="label">{{order?.status}}</label>
       </div>
-      <button class=" button" style="flex: 1" (click)="onCancel()">Cancelar</button>
+      <button class=" button" style="flex: 1" (click)="onCancel()" *ngIf="isCancelled()">Cancelar</button>
     </div>
   </div>
 

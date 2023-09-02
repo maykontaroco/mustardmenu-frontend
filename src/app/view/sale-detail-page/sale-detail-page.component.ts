@@ -33,6 +33,10 @@ export class SaleDetailPageComponent {
     })
   }
 
+  isCancelled(): boolean {
+    return this.order?.status !== 'Cancelada';
+  }
+
   showSuccessSnackBar(message: string) {
     this.snackBar.open(message, '', {
       duration: 3000,
@@ -49,3 +53,4 @@ export class SaleDetailPageComponent {
     });
   }
 }
+
