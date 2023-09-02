@@ -15,7 +15,7 @@
         <div class="card-text">{{ product.description.toUpperCase() }}</div>
         <div class="card-price">{{ 'R$ ' + product.price.toFixed(2) }}</div>
       </button>
-      <button class="card card-menu">
+      <button class="card card-menu" (click)="openProduct()">
         <div class="card-text-add-product">{{ '+' }}</div>
       </button>
     </div>

@@ -49,9 +49,7 @@ export class SalePageComponent {
       description: product.description,
     }
 
-    console.log('item: ', item);
     const itemReturn = await lastValueFrom(this.orderItemService.insertItem(item));
-    console.log('itemReturn: ', itemReturn);
     this.orderItems.push(itemReturn);
     this.refreshOrder();
   }
@@ -108,5 +106,9 @@ export class SalePageComponent {
 
   openSalePayment() {
     this.router.navigate(['/payment', this.order.id]);
+  }
+
+  openProduct() {
+    this.router.navigate(['/product']);
   }
 }
