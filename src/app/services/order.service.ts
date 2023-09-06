@@ -13,11 +13,15 @@ export class OrderService {
   private orderUri: string;
   private createOrderUri: string;
   private cancelOrderUri: string;
+  private additionOrderUri: string;
+  private discountOrderUri: string;
 
   constructor(private http: HttpClient) {
     this.orderUri = environment.urlApi + environment.basePath + '/order';
     this.createOrderUri = this.orderUri + '/create';
     this.cancelOrderUri = this.orderUri + '/{id}/cancel';
+    this.additionOrderUri = this.orderUri + '/{id}/addition';
+    this.discountOrderUri = this.orderUri + '/{id}/discount';
   }
 
   getOrder(idOrder: number): Observable<Order> {
@@ -34,6 +38,14 @@ export class OrderService {
 
   cancerOrder(id: number): Observable<Order> {
     return this.http.put<Order>(this.cancelOrderUri.replace('{id}', '' + id), null);
+  }
+
+  additionOrder(id: number, value: number): Observable<Order> {
+    return this.http.put<Order>(this.additionOrderUri.replace('{id}', '' + id), value);
+  }
+
+  discountOrder(id: number, value: number): Observable<Order> {
+    return this.http.put<Order>(this.discountOrderUri.replace('{id}', '' + id), value);
   }
 
   // Business Rules

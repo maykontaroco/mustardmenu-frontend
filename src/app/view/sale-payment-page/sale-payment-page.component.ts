@@ -65,6 +65,7 @@ export class SalePaymentPageComponent {
     if (this.order == null)
       return;
 
+    this.orderService.additionOrder(this.order.id!, value).subscribe(value => {});
     this.order.addition = value;
     this.orderService.refreshTotal(this.order);
   }
@@ -78,6 +79,7 @@ export class SalePaymentPageComponent {
       return;
     }
 
+    this.orderService.discountOrder(this.order.id!, value).subscribe(value => {});
     this.order.discount = value;
     this.orderService.refreshTotal(this.order);
   }
