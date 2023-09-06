@@ -28,6 +28,10 @@ export class ProductPageComponent {
     });
   }
 
+  updateProduct(product: Product) {
+    this.router.navigate(['/register-product/' + product.id]);
+  }
+
   removeProduct(product: Product) {
     this.productService.deleteProduct(product).subscribe(
       (response) => {

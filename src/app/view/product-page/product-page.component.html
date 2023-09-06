@@ -17,7 +17,7 @@
         <div class="grid">
           <label class="label-description">{{ product.description }}</label>
           <label class="label-price">{{ 'R$ ' + product.price.toFixed(2) }}</label>
-          <button class="transparent-button" style="margin-right: 10px">
+          <button class="transparent-button" style="margin-right: 10px" (click)="updateProduct(product)">
             <span class="icon"><i class="fas fa-edit"></i></span>
           </button>
           <button class="transparent-button" style="margin-right: 10px" (click)="removeProduct(product)">

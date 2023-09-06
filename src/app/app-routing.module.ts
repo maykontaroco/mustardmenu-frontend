@@ -20,6 +20,7 @@ const routes: Routes = [
   {path: 'detail/:id', component: SaleDetailPageComponent}, // Rota para a nova página
   {path: 'product', component: ProductPageComponent}, // Rota para a nova página
   {path: 'register-product', component: RegisterProductPageComponent}, // Rota para a nova página
+  {path: 'register-product/:id', component: RegisterProductPageComponent}, // Rota para a nova página
   {path: 'dashboard', component: DashboardPageComponent}, // Rota para a nova página
   {path: '**', redirectTo: 'login'}, // Rota padrão para redirecionar para a página inicial caso a rota não exista
 ];

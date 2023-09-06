@@ -1,24 +1,24 @@
-import {Component} from '@angular/core';
-import {Router} from "@angular/router";
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
 import {ProductService} from "../../services/product.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Product} from "../../model/product";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {CategoryService} from "../../services/category.service";
 import {Category} from "../../model/category";
-import {sample} from "rxjs";
 
 @Component({
   selector: 'app-register-product-page',
   templateUrl: './register-product-page.component.html',
   styleUrls: ['./register-product-page.component.css']
 })
-export class RegisterProductPageComponent {
+export class RegisterProductPageComponent implements OnInit {
   productForm: FormGroup;
   formSubmitted = false;
   categories: Category[] = [];
+  product: Product | undefined;
 
-  constructor(private productService: ProductService, private categoryService: CategoryService, private router: Router, private fb: FormBuilder, private snackBar: MatSnackBar) {
+  constructor(private productService: ProductService, private categoryService: CategoryService, private router: Router, private route: ActivatedRoute, private fb: FormBuilder, private snackBar: MatSnackBar) {
     this.getCategories();
     this.productForm = this.fb.group({
       code: ['', Validators.required],
@@ -31,6 +31,23 @@ export class RegisterProductPageComponent {
     });
   }
 
+  ngOnInit(): void {
+    const idProduct = Number(this.route.snapshot.paramMap.get('id'));
+    this.productService.getProduct(idProduct).subscribe(value => {
+      this.product = value;
+
+      this.productForm = this.fb.group({
+        code: [value.code, Validators.required],
+        name: [value.name, Validators.required],
+        description: [value.description, Validators.required],
+        price: [value.price, Validators.required],
+        costPrice: [value.costPrice],
+        selectedCategory: [this.getCategoryById(value.idCategory)],
+        observation: [value.observation]
+      });
+    });
+  }
+
   onDiscard() {
     this.backPage();
   }
@@ -39,11 +56,11 @@ export class RegisterProductPageComponent {
     this.formSubmitted = true;
     if (this.productForm.valid) {
       const product = new Product(
-        null,
+        this.product != null ? this.product.id : null,
         true,
         this.productForm.value.name,
-        this.productForm.value.code,
         this.productForm.value.description,
+        this.productForm.value.code,
         parseFloat(this.productForm.value.price),
         parseFloat(this.productForm.value.costPrice),
         this.productForm.value.selectedCategory.id
@@ -51,15 +68,27 @@ export class RegisterProductPageComponent {
         this.productForm.value.observation
       );
 
-      this.productService.insertProduct(product).subscribe(
-        (response) => {
-          this.showSuccessSnackBar('Produto inserido com sucesso');
-          this.backPage();
-        },
-        (error) => {
-          this.showErrorSnackBar('Erro ao inserir produto');
-        }
-      );
+      if (this.product == null) {
+        this.productService.insertProduct(product).subscribe(
+          (response) => {
+            this.showSuccessSnackBar('Produto inserido com sucesso');
+            this.backPage();
+          },
+          (error) => {
+            this.showErrorSnackBar('Erro ao inserir produto');
+          }
+        );
+      } else {
+        this.productService.updateProduct(product).subscribe(
+          (response) => {
+            this.showSuccessSnackBar('Produto atualizado com sucesso');
+            this.backPage();
+          },
+          (error) => {
+            this.showErrorSnackBar('Erro ao atualizar produto');
+          }
+        );
+      }
     }
   }
 
@@ -71,6 +100,10 @@ export class RegisterProductPageComponent {
     this.categoryService.getCategories().subscribe((categories) => {
       this.categories = categories;
     });
+  }
+
+  getCategoryById(idCategory: string) {
+    return this.categories.find(category => category.id === idCategory);
   }
 
   showSuccessSnackBar(message: string) {
