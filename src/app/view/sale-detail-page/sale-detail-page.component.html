@@ -20,8 +20,11 @@
       <mat-nav-list>
         <mat-list-item *ngFor="let item of order?.items">
           <div style="display: flex">
-            <label class="label" style="flex: 1;">{{item.quantity}}x {{ item.description }}</label>
-            <label class="label">R$ {{ item.totalValue.toFixed(2)}}</label>
+            <label class="label" style="flex: 1;"
+                   [ngStyle]="{'text-decoration': item.canceled ? 'line-through' : 'none', 'color': item.canceled ? 'red' : 'black'}"> {{item.quantity}}
+              x {{item.description}}</label>
+            <label class="label"
+                   [ngStyle]="{'text-decoration': item.canceled ? 'line-through' : 'none', 'color': item.canceled ? 'red' : 'black'}">R$ {{ item.totalValue.toFixed(2)}}</label>
           </div>
         </mat-list-item>
       </mat-nav-list>

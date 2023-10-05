@@ -27,6 +27,14 @@
   margin: 10px;
 }
 
+cancelled-label{
+  color: red;
+  font-size: 50px;
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
+
 .label-bold {
   font-weight: bold;
   font-size: 20px;
