@@ -57,17 +57,19 @@
         <input class="input" autofocus type="text" id="username" placeholder="Username" formControlName="username">
       </div>
       <div class="input-with-icon" style="padding-top: 20px">
-        <input class="input" type="password" id="password" placeholder="Password" formControlName="password" (keyup.enter)="login()">
+        <input class="input" type="password" id="password" placeholder="Password" formControlName="password"
+               (keyup.enter)="login()">
+      </div>
+
+
+      <div style="color: white; padding-top: 10px">
+        <label>Esqueceu a senha?</label>
+      </div>
+
+      <div style="padding-top: 40px">
+        <button class="button-accent" type="submit">Entrar</button>
       </div>
     </form>
-
-    <div style="color: white; padding-top: 10px">
-      <label>Esqueceu a senha?</label>
-    </div>
-
-    <div style="padding-top: 40px">
-      <button class="button-accent" type="submit">Entrar</button>
-    </div>
     <div class="blank-line"></div>
     <label class="right-label">{{version}}</label>
 
